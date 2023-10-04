@@ -1,11 +1,12 @@
 import React from 'react';
 import style from './Button.module.scss';
 
-class Button extends React.Component{
+// New versions of react no longer infer the 'children' type alone. To solve it, I used <React.PropsWithChildren>
+class Button extends React.Component <React.PropsWithChildren> {
     render() {
         return(
             <button className={style.button}>
-                Botão
+                {this.props.children}
             </button>
         )
     }
