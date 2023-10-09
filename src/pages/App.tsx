@@ -9,10 +9,19 @@ function App() {
 
   const [tasks, setTasks] = useState <ITask[]> ([]);
 
+  const [selected, setSelected] = useState <ITask> ();
+
+  function selectTask (selectedTask: ITask) {
+    setSelected(selectedTask);
+  }
+
   return (
     <div className={style.AppStyle}>
-      <Form setTasks={setTasks}/>
-      <List tasks = {tasks}/>
+      <Form setTasks = {setTasks}/>
+      <List 
+      tasks = {tasks}
+      selectTask = {selectTask}
+      />
       <Stopwatch />
     </div>
   );

@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '../Button';
 import style from './Form.module.scss';
 import { ITask } from '../../types/ITask';
+import { v4 as uuidv4 } from 'uuid';
 
 class Form extends React.Component <{setTasks: React.Dispatch<React.SetStateAction<ITask[]>>}> {
 
@@ -16,7 +17,8 @@ class Form extends React.Component <{setTasks: React.Dispatch<React.SetStateActi
             [...oldTasks,
                 {...this.state,
                 selected: false,
-                completed: false
+                completed: false,
+                id: uuidv4()
                 }
             ]
         );
