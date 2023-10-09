@@ -16,9 +16,13 @@ function Item({task, time, selected, completed, id, selectTask}: Props) {
     }
 
     return(
-        <li onClick={() => selectTask(taskItem)} className={`${style.item} ${selected ? style.selectedItem : ''}`}>
+        <li onClick={() => !completed && selectTask(taskItem)} className={`${style.item} ${selected ? style.selectedItem : ''} ${completed ? style.completedItem : ''}`}>
             <h3>{task}</h3>
             <span>{time}</span>
+            <br/>
+            {/* conditional render */}
+            {!completed && <h6>Clique aqui para poder cronometrar</h6>}
+            {completed && <span className={style.done}></span>}
         </li>
     )
 }
