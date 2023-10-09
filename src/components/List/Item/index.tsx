@@ -6,8 +6,17 @@ interface Props extends ITask {
 }
 
 function Item({task, time, selected, completed, id, selectTask}: Props) {
+
+    const taskItem = {
+        task: task, 
+        time: time, 
+        selected: selected, 
+        completed: completed,
+        id: id
+    }
+
     return(
-        <li onClick={() => selectTask({task, time, selected, completed, id})} className={style.item}>
+        <li onClick={() => selectTask(taskItem)} className={`${style.item} ${selected ? style.selectedItem : ''}`}>
             <h3>{task}</h3>
             <span>{time}</span>
         </li>
